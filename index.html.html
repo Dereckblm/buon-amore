@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buon amore</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #fdfcfb url('https://www.transparenttextures.com/patterns/old-moon.png');
+            font-family: 'Special Elite', cursive;
+            position: relative;
+            overflow: hidden;
+        }
+        .carta-container {
+            position: relative;
+            width: 400px;
+            height: 250px;
+            perspective: 1000px;
+        }
+        .carta {
+            width: 100%;
+            height: 100%;
+            background: #e8d8c4;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            position: relative;
+        }
+        .carta.open {
+            transform: rotateY(180deg);
+        }
+        .hoja {
+            position: absolute;
+            top: 20px;
+            width: 360px;
+            height: 220px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .carta.open + .hoja {
+            opacity: 1;
+        }
+        .corazon {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            color: #d32f2f;
+        }
+        .firma {
+            font-size: 20px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .flores {
+            position: absolute;
+            bottom: -100px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: subirFlores 2s ease-out forwards;
+        }
+        .flores img {
+            width: 80px;
+            height: auto;
+            filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3));
+        }
+        @keyframes subirFlores {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="carta-container" onclick="abrirCarta()">
+        <div class="carta" id="carta">
+            <span class="corazon">❤️</span>
+            📜 Click para abrir
+        </div>
+        <div class="hoja" id="hoja">
+            <p>Hoy al despertar, mi primer pensamiento fuiste tú. Me pregunté si esto era real o cómo sucedió, porque sentía miedo, pero también estoy feliz y en paz por estar aquí contigo. Siempre me haces sonreír y quiero aprender a adorarte. Sé lo increíble que eres, así que te quiero hoy y, aunque no sepa qué depara el futuro, haré todo por estar en el presente.</p>
+        </div>
+    </div>
+    <div class="flores">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Rosa_Red_Chateau01.jpg" alt="Flor 1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Tulip_-_floriade_canberra.jpg" alt="Flor 2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Sunflower_from_Silesia2.jpg" alt="Flor 3">
+    </div>
+    <div class="firma">Para Damián</div>
+    
+    <script>
+        function abrirCarta() {
+            document.getElementById('carta').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
